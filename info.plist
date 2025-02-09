@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>org.netfull.goodlinks-alfred</string>
+	<key>connections</key>
+	<dict>
+		<key>50B0CD10-4D52-4898-9C05-DD3A34A829C3</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>EF0881CF-D3B0-4E82-A731-FBB7CBAB9883</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>31959310-6689-4853-8650-A7B6108E6204</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Keith Walbolt</string>
+	<key>description</key>
+	<string>Search GoodLinks.app links</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>GoodLinks Search</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>skipqueryencode</key>
+				<false/>
+				<key>skipvarencode</key>
+				<false/>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>EF0881CF-D3B0-4E82-A731-FBB7CBAB9883</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>keyword</key>
+				<string>link</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>python3 goodlinks_sql.py</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Generate results into Alfred from JSON</string>
+				<key>title</key>
+				<string>Script Filter JSON format</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>50B0CD10-4D52-4898-9C05-DD3A34A829C3</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>31959310-6689-4853-8650-A7B6108E6204</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Alfred's Script Filter object is extremely powerful, and gives you control over the results displayed in Alfred.
+
+Alfred uses JSON for the Script Filter output, which is the recommended format. XML is also supported for legacy Alfred workflows.
+
+If the result set is static, use the "Alfred filters results" option. This allows you to return a whole list of results then let Alfred do the subsequent filtering with extreme performance. When this option is selected, your script will be called once with no argument.</string>
+	<key>uidata</key>
+	<dict>
+		<key>31959310-6689-4853-8650-A7B6108E6204</key>
+		<dict>
+			<key>xpos</key>
+			<real>390</real>
+			<key>ypos</key>
+			<real>340</real>
+		</dict>
+		<key>50B0CD10-4D52-4898-9C05-DD3A34A829C3</key>
+		<dict>
+			<key>note</key>
+			<string>Alfred uses JSON as the default Script Filter output. This is the recommended output.</string>
+			<key>xpos</key>
+			<real>120</real>
+			<key>ypos</key>
+			<real>200</real>
+		</dict>
+		<key>EF0881CF-D3B0-4E82-A731-FBB7CBAB9883</key>
+		<dict>
+			<key>xpos</key>
+			<real>415</real>
+			<key>ypos</key>
+			<real>185</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>1.1</string>
+	<key>webaddress</key>
+	<string>https://netfull.org</string>
+</dict>
+</plist>
