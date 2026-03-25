@@ -4,38 +4,49 @@ import urllib.error
 import sys
 
 # GoodLinks local API endpoint
-API_URL = "http://localhost:9428/api/v1/lists/all"
+BASE_URL = "http://localhost:9428/api/v1/lists/all"
 
-def fetch_goodlinks():
-    """Extracts links from GoodLinks via local REST API."""
+def fetch_all_links():
+    """Extracts ALL links from GoodLinks via local REST API by following pagination."""
+    all_links = []
+    offset = 0
+    limit = 1000 # Fetch in large chunks
+    
     try:
-        with urllib.request.urlopen(API_URL) as response:
-            if response.status != 200:
-                raise Exception(f"API returned status code {response.status}")
-            
-            data = json.loads(response.read().decode('utf-8'))
-            links = data.get("data", [])
-            
-            alfred_items = []
-            for link in links:
-                url = link.get("url")
-                title = link.get("title") or "Untitled"
-                summary = link.get("summary")
+        while True:
+            url = f"{BASE_URL}?limit={limit}&offset={offset}"
+            with urllib.request.urlopen(url) as response:
+                if response.status != 200:
+                    raise Exception(f"API returned status code {response.status}")
                 
-                alfred_items.append({
-                    "uid": link.get("id"),
-                    "title": title,
-                    "subtitle": summary if summary else url,
-                    "arg": url,
-                    "autocomplete": title,
-                    "quicklookurl": url
-                })
+                data = json.loads(response.read().decode('utf-8'))
+                links = data.get("data", [])
+                all_links.extend(links)
+                
+                if not data.get("hasMore"):
+                    break
+                
+                offset += limit
             
-            # Output JSON for Alfred
-            print(json.dumps({"items": alfred_items}, indent=2, ensure_ascii=False))
+        alfred_items = []
+        for link in all_links:
+            url = link.get("url")
+            title = link.get("title") or "Untitled"
+            summary = link.get("summary")
+            
+            alfred_items.append({
+                "uid": link.get("id"),
+                "title": title,
+                "subtitle": summary if summary else url,
+                "arg": url,
+                "autocomplete": title,
+                "quicklookurl": url
+            })
+        
+        # Output JSON for Alfred
+        print(json.dumps({"items": alfred_items}, indent=2, ensure_ascii=False))
             
     except urllib.error.URLError as e:
-        # Check if it's a connection error (API probably not enabled or app not running)
         error_msg = "GoodLinks API not reachable. Ensure GoodLinks is running and API is enabled in Settings."
         print(json.dumps({
             "items": [{
@@ -54,4 +65,4 @@ def fetch_goodlinks():
         }))
 
 if __name__ == "__main__":
-    fetch_goodlinks()
+    fetch_all_links()
