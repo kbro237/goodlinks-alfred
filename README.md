@@ -1,7 +1,8 @@
 A simple Alfred Workflow to search your GoodLinks.app links using the local REST API.
 
 ## Usage
-Type `link` and continue typing to search.
+*   Type `link` and continue typing to search across titles, summaries, and tags.
+*   Type `linkt` and continue typing to filter links *strictly* by their assigned tags.
 
 ## Setup
 This workflow uses the GoodLinks local REST API.
