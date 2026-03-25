@@ -28,20 +28,35 @@ def fetch_all_links():
                 
                 offset += limit
             
+        is_tag_search = "--tag-search" in sys.argv
+        
         alfred_items = []
         for link in all_links:
             url = link.get("url")
             title = link.get("title") or "Untitled"
             summary = link.get("summary")
+            tags = link.get("tags") or []
             
-            alfred_items.append({
+            # Skip links without tags if strictly searching by tags
+            if is_tag_search and not tags:
+                continue
+            
+            item = {
                 "uid": link.get("id"),
                 "title": title,
                 "subtitle": summary if summary else url,
                 "arg": url,
                 "autocomplete": title,
                 "quicklookurl": url
-            })
+            }
+            
+            # If tag search, only match against tags. Otherwise include title, summary, and tags.
+            if is_tag_search:
+                item["match"] = " ".join(tags)
+            else:
+                item["match"] = f"{title} {summary or ''} {' '.join(tags)}"
+                
+            alfred_items.append(item)
         
         # Output JSON for Alfred
         print(json.dumps({"items": alfred_items}, indent=2, ensure_ascii=False))
