@@ -246,7 +246,7 @@ If the result set is static, use the "Alfred filters results" option. This allow
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>1.1</string>
+	<string>2.0</string>
 	<key>webaddress</key>
 	<string>https://netfull.org</string>
 </dict>
