@@ -67,7 +67,7 @@
 			<key>config</key>
 			<dict>
 				<key>alfredfiltersresults</key>
-				<false/>
+				<true/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
 				<key>argumenttreatemptyqueryasnil</key>
@@ -81,7 +81,7 @@
 				<key>keyword</key>
 				<string>link</string>
 				<key>queuedelaycustom</key>
-				<integer>3</integer>
+				<integer>1</integer>
 				<key>queuedelayimmediatelyinitially</key>
 				<true/>
 				<key>queuedelaymode</key>
@@ -89,9 +89,9 @@
 				<key>queuemode</key>
 				<integer>1</integer>
 				<key>runningsubtext</key>
-				<string></string>
+				<string>Loading...</string>
 				<key>script</key>
-				<string>python3 goodlinks_api.py "$1"</string>
+				<string>python3 goodlinks_api.py</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -155,8 +155,8 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>alfredfiltersresults</key>
-				<false/>
+<key>alfredfiltersresults</key>
+				<true/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
 				<key>argumenttreatemptyqueryasnil</key>
@@ -166,11 +166,11 @@
 				<key>argumenttype</key>
 				<integer>1</integer>
 				<key>escaping</key>
-				<integer>0</integer>
+				<integer>127</integer>
 				<key>keyword</key>
 				<string>linkt</string>
 				<key>queuedelaycustom</key>
-				<integer>3</integer>
+				<integer>1</integer>
 				<key>queuedelayimmediatelyinitially</key>
 				<true/>
 				<key>queuedelaymode</key>
@@ -178,9 +178,9 @@
 				<key>queuemode</key>
 				<integer>1</integer>
 				<key>runningsubtext</key>
-				<string></string>
+				<string>Loading...</string>
 				<key>script</key>
-				<string>python3 goodlinks_api.py --tag-search "$1"</string>
+				<string>python3 goodlinks_api.py --tag-search</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -198,6 +198,55 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>DE65EB33-CDDD-47D6-BC66-19FF26ADE473</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>keyword</key>
+				<string>linkrefresh</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Refreshing cache...</string>
+				<key>script</key>
+				<string>python3 goodlinks_api.py --refresh</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Refresh GoodLinks cache</string>
+				<key>title</key>
+				<string>Refresh Cache</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>A1B2C3D4-E5F6-7890-ABCD-EF1234567890</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
@@ -239,6 +288,13 @@ If the result set is static, use the "Alfred filters results" option. This allow
 			<real>415</real>
 			<key>ypos</key>
 			<real>185</real>
+		</dict>
+		<key>A1B2C3D4-E5F6-7890-ABCD-EF1234567890</key>
+		<dict>
+			<key>xpos</key>
+			<real>120</real>
+			<key>ypos</key>
+			<real>500</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
