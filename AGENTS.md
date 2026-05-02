@@ -42,3 +42,12 @@ Requires `Authorization: Bearer <token>` header on all requests. Token read from
 - 401: Invalid token - check token in environment variable
 - 404: Check GoodLinks version (3.2+ required)
 - Connection error: API not reachable - ensure GoodLinks is running
+
+## Commit Convention
+All commits must include a `Co-Authored-By` trailer identifying the AI agent and model used:
+
+```
+Co-Authored-By: opencode (qwen3.6-plus) <https://opencode.ai>
+```
+
+Replace `qwen3.6-plus` with the actual model name. If the model is not programmatically available, ask the user or use the default.
