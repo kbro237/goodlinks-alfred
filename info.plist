@@ -242,7 +242,29 @@ If the result set is static, use the "Alfred filters results" option. This allow
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
-	<array/>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string></string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>The token found in GoodLink's Preferences</string>
+			<key>label</key>
+			<string>GoodLinks API Token</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>GOODLINKS_API_TOKEN</string>
+		</dict>
+	</array>
 	<key>version</key>
 	<string>2.0</string>
 	<key>webaddress</key>
